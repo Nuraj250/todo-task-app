@@ -27,3 +27,8 @@ def mark_task_done(task_id):
     task.completed = True
     db.session.commit()
     return jsonify({"message": "Task marked as completed"}), 200
+
+@task_routes.route("/tasks/completed", methods=["GET"])
+def get_completed_tasks():
+    tasks = Task.query.filter_by(completed=True).order_by(Task.id.desc()).all()
+    return jsonify([{"id": t.id, "title": t.title, "description": t.description} for t in tasks])

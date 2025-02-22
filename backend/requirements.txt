@@ -3,3 +3,6 @@ Flask-SQLAlchemy
 Flask-CORS
 python-dotenv
 mysql-connector-python
+pytest
+Flask-Testing
+
