@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getTasks, addTask, markTaskDone } from '../api';
-import { Container, Form, Button, ListGroup } from 'react-bootstrap';
+import { Container, TextField, Button, List, ListItem, ListItemText, IconButton } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 function Home() {
   const [tasks, setTasks] = useState([]);
@@ -28,46 +29,45 @@ function Home() {
   };
 
   return (
-    <Container className="mt-4">
-      <h1 className="text-center">To-Do App</h1>
+    <Container sx={{ mt: 4 }}>
+      <h1>To-Do App</h1>
 
       {/* Task Form */}
-      <Form onSubmit={handleAddTask} className="mb-4">
-        <Form.Group>
-          <Form.Control
-            type="text"
-            placeholder="Task Title"
-            value={newTask.title}
-            onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
-            required
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control
-            type="text"
-            placeholder="Task Description"
-            value={newTask.description}
-            onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit" className="mt-2 w-100">
+      <form onSubmit={handleAddTask}>
+        <TextField
+          label="Task Title"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={newTask.title}
+          onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
+          required
+        />
+        <TextField
+          label="Task Description"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={newTask.description}
+          onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
+        />
+        <Button variant="contained" color="primary" type="submit" fullWidth>
           Add Task
         </Button>
-      </Form>
+      </form>
 
       {/* Task List */}
-      <ListGroup>
+      <List sx={{ mt: 4 }}>
         {tasks.map((task) => (
-          <ListGroup.Item key={task.id} className="d-flex justify-content-between align-items-center">
-            <div>
-              <strong>{task.title}</strong> - {task.description}
-            </div>
-            <Button variant="success" size="sm" onClick={() => handleCompleteTask(task.id)}>
-              Done
-            </Button>
-          </ListGroup.Item>
+          <ListItem key={task.id} secondaryAction={
+            <IconButton color="success" onClick={() => handleCompleteTask(task.id)}>
+              <CheckCircleIcon />
+            </IconButton>
+          }>
+            <ListItemText primary={task.title} secondary={task.description} />
+          </ListItem>
         ))}
-      </ListGroup>
+      </List>
     </Container>
   );
 }

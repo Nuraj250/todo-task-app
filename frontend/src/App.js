@@ -1,23 +1,23 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { AppBar, Toolbar, Typography, Button, Container } from '@mui/material';
 import Home from './pages/Home';
 import TaskHistory from './pages/TaskHistory';
 
 function App() {
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand>To-Do App</Navbar.Brand>
-          <Nav className="ml-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/history">Task History</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            To-Do App
+          </Typography>
+          <Button color="inherit" component={Link} to="/">Home</Button>
+          <Button color="inherit" component={Link} to="/history">Task History</Button>
+        </Toolbar>
+      </AppBar>
 
-      <Container className="mt-4">
+      <Container sx={{ mt: 4 }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/history" element={<TaskHistory />} />

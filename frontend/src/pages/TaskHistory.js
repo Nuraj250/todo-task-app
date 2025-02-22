@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, ListGroup } from 'react-bootstrap';
+import { Container, List, ListItem, ListItemText } from '@mui/material';
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
@@ -17,19 +17,19 @@ function TaskHistory() {
   };
 
   return (
-    <Container className="mt-4">
-      <h1 className="text-center">Task History</h1>
-      <ListGroup>
+    <Container sx={{ mt: 4 }}>
+      <h1>Task History</h1>
+      <List>
         {completedTasks.length === 0 ? (
-          <p className="text-center mt-3">No completed tasks yet.</p>
+          <p>No completed tasks yet.</p>
         ) : (
           completedTasks.map((task) => (
-            <ListGroup.Item key={task.id}>
-              <strong>{task.title}</strong> - {task.description}
-            </ListGroup.Item>
+            <ListItem key={task.id}>
+              <ListItemText primary={task.title} secondary={task.description} />
+            </ListItem>
           ))
         )}
-      </ListGroup>
+      </List>
     </Container>
   );
 }
