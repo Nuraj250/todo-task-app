@@ -123,12 +123,19 @@ function Home() {
           <Typography variant="body1"><strong>Description:</strong> {viewTask?.description || "No Description"}</Typography>
           <Typography variant="body1"><strong>Category:</strong> {viewTask?.category || "Not Specified"}</Typography>
           <Typography variant="body1"><strong>Due Date:</strong> {viewTask?.dueDate || "Not Set"}</Typography>
-          {viewTask?.dueTime && <Typography variant="body1"><strong>Due Time:</strong> {viewTask.dueTime}</Typography>}
+          <Typography variant="body1"><strong>Due Time:</strong> {viewTask?.dueTime || "Not Set"}</Typography>
+          {viewTask?.completedDate && (
+            <>
+              <Typography variant="body1"><strong>Completed On:</strong> {viewTask.completedDate}</Typography>
+              <Typography variant="body1"><strong>Completed Time:</strong> {viewTask.completedTime}</Typography>
+            </>
+          )}
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setViewOpen(false)} variant="contained" color="primary">Close</Button>
         </DialogActions>
       </Dialog>
+
 
       {/* Edit Task Modal */}
       <Dialog open={editOpen} onClose={() => setEditOpen(false)} maxWidth="sm" fullWidth>

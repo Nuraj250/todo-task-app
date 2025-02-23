@@ -5,15 +5,23 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 // Get all tasks
 export const getTasks = async () => {
   const response = await axios.get(`${API_URL}/tasks`);
-  return response.data;
+  return response.data.map(task => ({
+    ...task,
+    dueDate: task.dueDate ? new Date(task.dueDate).toISOString().split("T")[0] : "Not Set",
+    dueTime: task.dueTime || "Not Set"
+  }));
 };
+
 
 // Get completed tasks
 export const getCompletedTasks = async () => {
   const response = await axios.get(`${API_URL}/tasks/completed`);
-  return response.data;
+  return response.data.map(task => ({
+    ...task,
+    completedDate: task.completedDate || "Not Set",
+    completedTime: task.completedTime || "Not Set"
+  }));
 };
-
 // Add a new task
 export const addTask = async (task) => {
   const response = await axios.post(`${API_URL}/tasks`, task);

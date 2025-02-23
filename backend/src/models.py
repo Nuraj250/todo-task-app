@@ -8,5 +8,8 @@ class Task(db.Model):
     description = db.Column(db.Text, nullable=True)
     category = db.Column(db.String(50), nullable=True)
     due_date = db.Column(db.Date, nullable=True)
-    due_time = db.Column(db.Time, nullable=True)  # New field for time
+    due_time = db.Column(db.Time, nullable=True)
     completed = db.Column(db.Boolean, default=False)
+    finished_date = db.Column(db.Date, nullable=True)
+    finished_time = db.Column(db.Time, nullable=True)
+

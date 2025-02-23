@@ -24,7 +24,7 @@ function TaskHistory() {
         >
           <ListItemText
             primary={task.title}
-            secondary={`Category: ${task.category} | Completed on: ${task.completed_date}`}
+            secondary={`Category: ${task.category} | Completed on: ${task.completedDate} at ${task.completedTime}`}
           />
         </ListItem>))}</List>
     </Container>
