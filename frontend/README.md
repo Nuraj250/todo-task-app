@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# **Frontend - Full Stack To-Do App** 📝
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Task History](assets/task-history.png)
 
-## Available Scripts
+This is the **React.js** frontend for the **Full Stack To-Do App**. It provides a user-friendly interface to **add, update, delete, and complete tasks**, with **category-based styling, dark mode, and task history**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Features** ✨
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ✅ **Task Management**
+- Add **new tasks** with **title, description, due date, and due time**.
+- View all tasks in a **side-by-side layout** for easy management.
+- **Edit** existing tasks with an intuitive modal.
+- **Delete** tasks with a confirmation prompt.
+- **Mark tasks as completed** with a visible **done button**.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🎨 **UI Enhancements**
+- **Category-based colors**:
+  - **Personal** → **Pink**
+  - **Work** → **Yellow**
+  - **Urgent** → **Red**
+- **Dark Mode Toggle** using **Material UI**.
+- **Toast notifications** for all actions (Task Added, Updated, Deleted, Completed).
+- **Task Details Modal** for viewing tasks.
 
-### `npm test`
+### 🕒 **Date & Time Support**
+- Tasks can be assigned a **due date** and an **optional due time**.
+- Completed tasks store a **"Finished Date & Time"**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📜 **Task History**
+- Displays **completed tasks** with their **category, finished date & time**.
+- Uses **category colors** for easy recognition.
 
-### `npm run build`
+### 🔄 **Drag & Drop Reordering**
+- Users can reorder tasks using **React DnD**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **Project Setup** ⚙️
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **1️⃣ Install Dependencies**
+```sh
+npm install
+```
 
-### `npm run eject`
+### **2️⃣ Start the React App**
+```sh
+npm start
+```
+The app will be available at:  
+**`http://localhost:3000`**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **3️⃣ Environment Variables**
+Create a **`.env`** file and set the backend API URL:
+```sh
+REACT_APP_API_URL=http://localhost:5000
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## **API Endpoints Used** 📡
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `GET /tasks` → Fetch all tasks
+- `POST /tasks` → Add a new task
+- `PUT /tasks/:id` → Update a task
+- `DELETE /tasks/:id` → Delete a task
+- `PATCH /tasks/:id/done` → Mark task as completed
+- `GET /tasks/completed` → Fetch completed tasks
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## **Technologies Used** 🛠️
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **React.js** (Frontend Framework)
+- **Material UI** (UI Components)
+- **Axios** (API Requests)
+- **React Router** (Navigation)
+- **React DnD** (Drag & Drop for task reordering)
+- **Context API** (State Management)
+- **React Toastify** (Notifications)
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## **Screenshots** 📸
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+✅ **Task List (With Category Colors & Side-by-Side Layout)**  
+![Task List](assets/task-list.png)
+✅ **Task Details Modal**  
+![Task Details](assets/task-details.png)
+✅ **Edit Task Modal**  
+![Task History](assets/task-edit.png)
+✅ **Task History Page (Completed Tasks)**  
+![Task History](assets/task-history.png)
