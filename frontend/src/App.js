@@ -1,25 +1,42 @@
 import React, { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, Container } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Container, Switch } from '@mui/material';
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
 import TaskHistory from './pages/TaskHistory';
-import DarkModeToggle from './components/DarkModeToggle';
 
 function App() {
+  // Dark Mode State
   const [darkMode, setDarkMode] = useState(false);
+  const theme = createTheme({ palette: { mode: darkMode ? 'dark' : 'light' } });
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ToastContainer position="top-right" autoClose={3000} />
+
+      {/* Navigation Bar */}
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>To-Do App</Typography>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            To-Do App
+          </Typography>
           <Button color="inherit" component={Link} to="/">Home</Button>
           <Button color="inherit" component={Link} to="/history">Task History</Button>
-          <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+          <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
         </Toolbar>
       </AppBar>
-      <Container><Routes><Route path="/" element={<Home />} /><Route path="/history" element={<TaskHistory />} /></Routes></Container>
-    </div>
+
+      {/* Page Content */}
+      <Container sx={{ mt: 4 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/history" element={<TaskHistory />} />
+        </Routes>
+      </Container>
+    </ThemeProvider>
   );
 }
 

@@ -1,17 +1,18 @@
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
-from src.models import db
-from src.routes import task_routes
+from models import *
+from routes import task_routes
 import os
 
 # Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)  # Ensure frontend requests are allowed
 
 # Database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:admin@localhost/todo_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize extensions

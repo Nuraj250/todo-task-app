@@ -20,6 +20,9 @@ function TaskForm({ onAdd }) {
         value={newTask.description} onChange={(e) => setNewTask({ ...newTask, description: e.target.value })} />
       <TextField type="date" label="Due Date" variant="outlined" fullWidth margin="normal" InputLabelProps={{ shrink: true }}
         value={newTask.dueDate} onChange={(e) => setNewTask({ ...newTask, dueDate: e.target.value })} />
+      <TextField type="time" label="Due Time (Optional)" variant="outlined" fullWidth margin="normal" InputLabelProps={{ shrink: true }}
+        value={newTask.dueTime} onChange={(e) => setNewTask({ ...newTask, dueTime: e.target.value })}
+      />
       <TextField select label="Category" variant="outlined" fullWidth margin="normal"
         value={newTask.category} onChange={(e) => setNewTask({ ...newTask, category: e.target.value })}>
         {categories.map((category) => <MenuItem key={category} value={category}>{category}</MenuItem>)}
