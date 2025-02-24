@@ -1,4 +1,4 @@
-### **🚀 How to Run the Full Stack To-Do App**
+### **🚀 How to Run the Full Stack To-Do App** 
 
 Follow these steps to run the **Flask backend** and **React frontend** for your **Full Stack To-Do App**.
 

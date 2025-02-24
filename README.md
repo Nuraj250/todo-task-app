@@ -67,7 +67,7 @@ todo-app-fullstack/
 
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/your-username/todo-app-fullstack.git
+git clone https://github.com/Nuraj250/todo-app-fullstack.git
 cd todo-app-fullstack
 ```
 
