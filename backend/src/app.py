@@ -8,8 +8,9 @@ import os
 # Load environment variables
 load_dotenv()
 
+# Initialize Flask application
 app = Flask(__name__)
-CORS(app)  # Ensure frontend requests are allowed
+CORS(app)  # Ensure frontend requests are allowed (Cross-Origin Resource Sharing)
 
 # Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:admin@localhost/todo_db'
@@ -26,5 +27,6 @@ app.register_blueprint(task_routes)
 with app.app_context():
     db.create_all()
 
+# Run the application with debug mode enabled, accessible on all IP addresses of the host machine
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
