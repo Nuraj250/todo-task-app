@@ -1,19 +1,23 @@
+/* Global styles for the entire document */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
+  font-family: Arial, sans-serif; /* Sets the default font */
+  text-align: center; /* Centers text in the body */
 }
 
+/* Styling for form elements */
 form {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Adds spacing below the form */
 }
 
+/* Styling for input fields */
 input {
-  margin: 5px;
-  padding: 8px;
+  margin: 5px; /* Adds space around the input fields */
+  padding: 8px; /* Adds padding for better usability */
 }
 
+/* Styling for buttons */
 button {
-  margin-left: 10px;
-  padding: 8px;
-  cursor: pointer;
+  margin-left: 10px; /* Adds spacing to the left of the button */
+  padding: 8px; /* Adds padding for better appearance */
+  cursor: pointer; /* Changes cursor to pointer on hover */
 }
