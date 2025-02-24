@@ -3,31 +3,33 @@ from flask_sqlalchemy import SQLAlchemy
 # Initialize SQLAlchemy instance for database interaction
 db = SQLAlchemy()
 
-# Define a Task model (table) that represents the 'tasks' table in the database
+# Define the Task model representing the 'tasks' table in the database
 class Task(db.Model):
-    # Column to store a unique identifier for each task (primary key)
+    """Represents a Task entity in the database."""
+
+    # Unique identifier for each task (Primary Key)
     id = db.Column(db.Integer, primary_key=True)
-    
-    # Column to store the task title, cannot be null
+
+    # Title of the task (Required field)
     title = db.Column(db.String(255), nullable=False)
-    
-    # Column to store a detailed description of the task, can be null
+
+    # Detailed description of the task (Optional)
     description = db.Column(db.Text, nullable=True)
-    
-    # Column to store the task's category, can be null
+
+    # Category of the task (e.g., Work, Personal, Urgent) (Optional)
     category = db.Column(db.String(50), nullable=True)
-    
-    # Column to store the task's due date, can be null
+
+    # Due date of the task (Optional)
     due_date = db.Column(db.Date, nullable=True)
-    
-    # Column to store the task's due time, can be null
+
+    # Due time of the task (Optional)
     due_time = db.Column(db.Time, nullable=True)
-    
-    # Column to indicate whether the task is completed, defaults to False
+
+    # Task completion status (Defaults to False)
     completed = db.Column(db.Boolean, default=False)
-    
-    # Column to store the date when the task was finished, can be null
+
+    # Date when the task was completed (Optional)
     finished_date = db.Column(db.Date, nullable=True)
-    
-    # Column to store the time when the task was finished, can be null
+
+    # Time when the task was completed (Optional)
     finished_time = db.Column(db.Time, nullable=True)
