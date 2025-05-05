@@ -1,5 +1,3 @@
-### **📜 Full Stack To-Do App - README**  
-
 # **Full Stack To-Do App**  
 A full-stack task management application built using **Flask (Python) for the backend, React (JavaScript) for the frontend, and MySQL for the database**.  
 
